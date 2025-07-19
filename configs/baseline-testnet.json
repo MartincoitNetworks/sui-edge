@@ -1,6 +1,7 @@
 {
   "config": {
    "management": {
+      "hostname": "testnet"
       "api": {
          "listeners": [
             {
