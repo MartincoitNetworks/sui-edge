@@ -1,0 +1,26 @@
+{
+  "config": {
+   "management": {
+      "api": {
+         "listeners": [
+            {
+               "description": "localhost API",
+               "address": "127.0.0.1:443"
+            }
+         ],
+         "basic_auth": {
+            "enabled": true,
+            "users": [
+               {
+                  "username": "admin",
+                  "password_hashed": "$2y$05$9j6jB0DORgxVir0QerURDO669uiuMlbZSfz8F0t/Ty/GsjanBZlfW",
+                  "roles": [
+                    "writer"
+                  ]
+               }
+            ]
+         }
+      }
+   }
+  }
+}
