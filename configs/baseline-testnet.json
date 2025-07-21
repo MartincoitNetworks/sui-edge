@@ -1,12 +1,38 @@
 {
   "config": {
-   "management": {
-      "hostname": "testnet"
+    "interfaces": {
+      "ethernets": [
+        {
+          "addresses": [
+            "192.168.101.2/24"
+          ],
+          "driver": "LINUX",
+          "name": "enp2s0"
+        },
+        {
+          "addresses": [
+            "142.4.52.51/29"
+          ],
+          "driver": "VPP_DPDK",
+          "name": "enp1s0",
+          "routes": [
+            {
+              "metric": 10,
+              "sequence_id": 2,
+              "to": "0.0.0.0/0",
+              "via": "142.4.52.49"
+            }
+          ]
+        }
+      ]
+    },
+    "management": {
+      "hostname": "testnet",
       "api": {
          "listeners": [
             {
                "description": "localhost API",
-               "address": "127.0.0.1:443"
+               "address": "192.168.101.2:443"
             }
          ],
          "basic_auth": {
@@ -14,14 +40,43 @@
             "users": [
                {
                   "username": "admin",
-                  "password_hashed": "$2y$05$9j6jB0DORgxVir0QerURDO669uiuMlbZSfz8F0t/Ty/GsjanBZlfW",
+                  "password_hashed": "$2a$12$3q9P4H5oxX54PBrr4NVMwOwH4WaARBjHRsj8btMKdwvgn3MnG8exC",
                   "roles": [
                     "writer"
                   ]
                }
             ]
          }
+      },
+      "ssh": {
+        "users": [
+          {
+            "ssh_keys": [
+              {
+                "description": "studarus-scionsui",
+                "key": "AAAAC3NzaC1lZDI1NTE5AAAAIIUMSlP1az/bgDKTJQgdf/QERUOC3sjVO8GjRbbK9m7q"
+              },
+              {
+                "description": "jean-pierre@mystenlabs.com",
+                "key": "AAAAC3NzaC1lZDI1NTE5AAAAIK/ALpkZY66QR/uYrn4g9/GAjOM5cJ2lKbZrzzMhAg7X"
+              },
+              {
+                "description": "chris.gorham@mystenlabs.com",
+                "key": "AAAAC3NzaC1lZDI1NTE5AAAAILAVYnKYofNULBzpMk8jnxLExvJZXWcs8lQGlIzAJFin"
+              },
+              {
+                "description": "pe@mystenlabs.com",
+                "key": "AAAAC3NzaC1lZDI1NTE5AAAAINd+Ss33L4TDDiLseBVw7t+Ofy3FyaeLyCHWGzXgbV1p"
+              }
+            ],
+            "username": "anapaya"
+          }
+        ]
       }
-   }
+    }
+  },
+  "metadata": {
+    "release_version": "v0.39.4",
+    "system_version": "v2.15.0"
   }
 }
