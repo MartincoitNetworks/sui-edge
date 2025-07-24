@@ -4,14 +4,19 @@
       "ethernets": [
         {
           "addresses": [
-            "192.168.101.2/24"
+# uncomment either the testnet or mainnet local address
+# mainnet is 192.168.100.2
+#            "192.168.100.2/24"
+# testnet is 192.168.101.2
+#            "192.168.101.2/24"
           ],
           "driver": "LINUX",
           "name": "enp2s0"
         },
         {
           "addresses": [
-            "142.4.52.51/29"
+# update this with the public IP provided by the cloud provider 
+#           "142.4.52.51/29"
           ],
           "driver": "VPP_DPDK",
           "name": "enp1s0",
@@ -20,19 +25,22 @@
               "metric": 10,
               "sequence_id": 2,
               "to": "0.0.0.0/0",
-              "via": "142.4.52.49"
+# update this with the Gateway of the public IP provided by the cloud provider
+#              "via": "142.4.52.49"
             }
           ]
         }
       ]
     },
     "management": {
-      "hostname": "testnet",
+# pick one name
+#      "hostname": "testnet",
+#      "hostname": "mainnet",    
       "api": {
          "listeners": [
             {
                "description": "localhost API",
-               "address": "192.168.101.2:443"
+               "address": "127.0.0.1:443"
             }
          ],
          "basic_auth": {
