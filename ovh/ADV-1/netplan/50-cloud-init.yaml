@@ -1,0 +1,8 @@
+network:
+  version: 2
+  ethernets:
+    enp8s0f0np0:
+      match:
+        macaddress: "04:7c:16:f1:11:0a"
+      dhcp4: false
+      accept-ra: false
