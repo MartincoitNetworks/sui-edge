@@ -1,0 +1,19 @@
+# 91-virbr_scionwan.yaml
+network:
+    version: 2
+    bridges:
+      scionwan:
+        dhcp4: yes
+        dhcp6: no
+        interfaces: [enp8s0f0np0]
+        macaddress: "04:7c:16:f1:11:0a"
+        addresses:
+        - "2001:41d0:24a:3a00::/56"
+        routes:
+        - on-link: true
+          to: default
+          via: "100.64.0.1"
+        routes:
+        - on-link: true
+          to: "default"
+          via: "fe80::1"
