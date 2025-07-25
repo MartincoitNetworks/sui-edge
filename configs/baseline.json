@@ -84,6 +84,15 @@
         ]
       }
     }
+    "system": {
+      "dns": {
+        "servers": [
+          {
+          "address": "8.8.8.8"
+          }
+        ]
+      }
+    }
   },
   "metadata": {
     "release_version": "v0.39.4",
