@@ -28,6 +28,8 @@
               "sequence_id": 2,
               "to": "0.0.0.0/0",
 # update this with the Gateway of the public IP provided by the cloud provider
+# OR if the provider (i.e. OVH) doesn't provide a gateway, delete the route and add it manually
+# i.e. ip route add default via 100.64.0.1 dev enp1s0 onlink
 #              "via": "142.4.52.49"
             }
           ]
