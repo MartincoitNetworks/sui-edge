@@ -20,6 +20,8 @@
           ],
           "driver": "VPP_DPDK",
           "name": "enp1s0",
+# some providers (i.e. OVH) require a virtual MAC to be assigned to VM by the provider 
+#          "mac": "00:00:00:00:00:00",
           "routes": [
             {
               "metric": 10,
