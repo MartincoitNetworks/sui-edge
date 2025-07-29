@@ -1,0 +1,149 @@
+{
+  "interfaces": {
+    "ethernets": [
+      {
+        "addresses": [
+          "142.4.52.52/29"
+        ],
+        "driver": "VPP_DPDK",
+        "name": "enp1s0",
+        "routes": [
+          {
+            "metric": 10,
+            "sequence_id": 2,
+            "to": "0.0.0.0/0",
+            "via": "142.4.52.49"
+          }
+        ]
+      },
+      {
+        "addresses": [
+          "192.168.100.2/24"
+        ],
+        "driver": "LINUX",
+        "name": "enp2s0"
+      }
+    ]
+  },
+  "management": {
+    "api": {
+      "basic_auth": {
+        "enabled": true,
+        "users": [
+          {
+            "password_hashed": "$2a$12$3q9P4H5oxX54PBrr4NVMwOwH4WaARBjHRsj8btMKdwvgn3MnG8exC",
+            "roles": [
+              "writer"
+            ],
+            "username": "admin"
+          }
+        ]
+      },
+      "listeners": [
+        {
+          "address": "0.0.0.0:443",
+          "description": "API"
+        }
+      ]
+    },
+    "hostname": "webnx-mainnet",
+    "ssh": {
+      "users": [
+        {
+          "username": "anapaya",
+          "ssh_keys": [
+            {
+              "description": "studarus-scionsui",
+              "key": "AAAAC3NzaC1lZDI1NTE5AAAAIIUMSlP1az/bgDKTJQgdf/QERUOC3sjVO8GjRbbK9m7q"
+            },
+            {
+              "description": "jean-pierre@mystenlabs.com",
+              "key": "AAAAC3NzaC1lZDI1NTE5AAAAIK/ALpkZY66QR/uYrn4g9/GAjOM5cJ2lKbZrzzMhAg7X"
+            },
+            {
+              "description": "chris.gorham@mystenlabs.com",
+              "key": "AAAAC3NzaC1lZDI1NTE5AAAAILAVYnKYofNULBzpMk8jnxLExvJZXWcs8lQGlIzAJFin"
+            },
+            {
+              "description": "pe@mystenlabs.com",
+              "key": "AAAAC3NzaC1lZDI1NTE5AAAAINd+Ss33L4TDDiLseBVw7t+Ofy3FyaeLyCHWGzXgbV1p"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scion": {
+    "ases": [
+      {
+        "control": {
+          "address": "142.4.52.52:30252",
+          "enabled": true
+        },
+        "core": false,
+        "cppki": {
+          "issuers": [
+            {
+              "isd_as": "67-2:0:26",
+              "priority": 0
+            }
+          ]
+        },
+        "details": {
+          "description": "Mysten Labs WebNX Utah Mainnet 67-2:0:77",
+          "name": "Mysten Labs WebNX Utah Mainnet 67-2:0:77"
+        },
+        "forwarding_key_ref": "forwarding_key_ref@1",
+        "isd_as": "67-2:0:77",
+        "router": {
+          "enabled": true,
+          "internal_interface": "142.4.52.52:30999"
+        },
+        "scion_mtu": 1472,
+        "neighbors": [
+          {
+            "neighbor_isd_as": "67-2:0:5a",
+            "relationship": "CHILD",
+            "interfaces": [
+              {
+                "address": "142.4.52.52:33100",
+                "enable_scion_rss": true,
+                "interface_id": 100,
+                "remote": {
+                  "address": "142.4.52.51:32036",
+                  "interface_id": 1
+                },
+                "scion_mtu": 1472
+              }
+            ]
+          },
+          {
+            "neighbor_isd_as": "67-2:0:6e",
+            "relationship": "PARENT",
+            "interfaces": [
+              {
+                "address": "142.4.52.52:32001",
+                "enable_scion_rss": true,
+                "interface_id": 2,
+                "remote": {
+                  "address": "185.209.179.167:32036",
+                  "interface_id": 36
+                },
+                "scion_mtu": 1472
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "system": {
+    "dns": {
+      "servers": [
+        {
+          "address": "8.8.8.8"
+        }
+      ]
+    }
+  }
+}
